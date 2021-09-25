@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <%- include('head'); -%>
+    <body>
+        <%- include('header'); -%>
+        <div id="logo">LITTLE TWENTY</div>
+        <div class="page_title">Your Cart 你的购物车</div>
+        <div class="cart-wrapper">
+            <% var totalsum = 0; %>
+            <% if (dataElement.length == 0){ %>
+                <p class="no-item">No item found in your cart.</p>
+            <% } %>
+            <% if (dataElement.length != 0){ %>
+                <% for(var i = 0; i < dataElement.length; i++){ %>
+                    <div class="cart-item">
+                        <img class="cart-image" src= "<%= dataElement[i].selectedItem.imageUrl %>" alt="no img"></img>
+                        <div class="nm_qn_inline">
+                            <div class="cart-pname"><%= dataElement[i].selectedItem.name %></div>
+                            <% var price = parseInt(dataElement[i].selectedItem.price.substring(2)); %>
+                            <% var quantity = parseInt(dataElement[i].selectedItem.quantity); %>
+                            <% var total = price * quantity; %>
+                            <% totalsum += total; %>
+                            <form method="post" action="/cart">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" min="1" value="<%=quantity%>">
+                                <input type="hidden" value="<%= i %>" name="item_index">
+                                <input type="hidden" value="update" name="manage_item">
+                                <button type="submit" class="update_button">Refresh Item</button>
+                            </form>
+                        </div>
+                        <div class="cart-price">RM <%= total %></div>
+                       
+                        <form method="post" action="/cart">
+                            <input type="hidden" value="remove" name="manage_item">
+                            <input type="hidden" value="<%= i %>" name="item_index">
+                            <button class="remove-item" type="submit" class="remove_button">Remove</button>
+                        </form>
+                    </div>
+                <% } %>
+            <% } %>
+            <% if (dataElement.length != 0){ %>  
+            <div class="final-price"><b>TOTAL : </b>RM<%= totalsum %> <br>(exclude shipping fee)</div>
+            <form method="get" action="/address">
+                <button class="proceed-to-purchase" type="submit" class="remove_button">Proceed</button>
+            </form>
+            <% } %>
+        </div>
+        <%- include('footer'); -%>
+    </body>
+</html>

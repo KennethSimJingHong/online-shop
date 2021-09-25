@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <%- include('head'); -%>
+    <body>
+        <%- include('header'); -%>
+        <div id="logo">LITTLE TWENTY</div>
+        
+
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name ="radio-btn" id="radio1">
+                <input type="radio" name ="radio-btn" id="radio2">
+            
+
+                <div class="slide first">
+                    <img src=" <%= eventElement[0].banner1 %> ">
+                </div>
+                <div class="slide second">
+                    <img src=" <%= eventElement[0].banner2 %> ">
+                </div>
+
+
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                </div>
+            
+            </div>
+
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+            </div>
+            </div>
+
+        
+
+        <h1 class="eventperiod"><%= eventElement[0].period %></h1>
+
+        <div class="page_title">Overseas Purchasing 海外代购</div>
+
+        <div id="section1">
+            <% for (var i = 0; i < dataElement.length; i++){ %>
+                <form method="post" action="/">
+                <div class="product_wrapper">
+                   <div class="img_cont">
+                    <img class="product_image" src= "<%= dataElement[i].imageUrl %>" alt="no img"></img>
+                   </div>
+                    <div class="product_name"><%= dataElement[i].name %></div>
+                    <div class="product_price"><%= dataElement[i].price %></div>
+                    <input type="hidden" name="which_tab" value="<%= i %>">
+                    <button type="submit" class="add_button">Check Item</button>
+                </div>
+                </form>
+            <% } %>
+        </div>
+        <%- include('footer'); -%>
+        
+        <script>
+            var counter = 1;
+            setInterval(function(){
+                document.getElementById("radio" + counter).checked = true;
+                counter++;
+                if(counter > 2){
+                    counter = 1;
+                }
+            }, 5000);
+        </script>
+        
+    </body>
+</html>
+

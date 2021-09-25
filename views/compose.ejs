@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <form action="/compose" method="POST">
+            <input type="text" placeholder="product name" name="name"><br>
+            <input type="text" placeholder="product price" value="RM" name="price"><br>
+            <textarea placeholder="product desc" rows="8" cols="50" name="desc"></textarea><br>
+            <input type="text" placeholder="product main image" name="mainImage"><br>
+            <textarea placeholder="product other images (separated by comma)" rows="8" cols="50" name="secondImage"></textarea><br>
+            <button type="submit"></button>
+        </form>
+        <script src="../app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+    </body>
+</html>

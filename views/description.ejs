@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <%- include('head'); -%>
+    <body>
+        <%- include('header'); -%>
+
+        <div id="logo">LITTLE TWENTY</div>
+            <div id="desc_wrapper">
+                <img class="desc_image" src= "<%= dataElement.imageUrl %>"></img>
+                <div class="desc_content">
+                    <div class="desc_name"><%= dataElement.name %></div>
+                    <div class="desc_price"><%= dataElement.price %></div>
+                    <div class="desc_desc"><%= dataElement.desc %></div>
+                    <form method="post" action="/desc">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1"><br>
+                        <button class="desc_cart_button">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+            <div class="more_img"> More Images</div>
+            <div class="more_img_wrapper"> 
+                <% for (var i = 0; i < dataElement.images.length; i++){ %>
+                    <img class="more_img_img" src="<%= dataElement.images[i] %>"></img>
+                <% } %> 
+            </div>
+
+        <%- include('footer'); -%>
+    </body>
+</html>

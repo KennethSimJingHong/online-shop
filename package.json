@@ -1,0 +1,23 @@
+{
+  "name": "esther",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body": "^5.1.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "firebase": "^7.24.0",
+    "firebase-admin": "^9.3.0",
+    "jsdom": "^16.4.0",
+    "nodemailer": "^6.4.14",
+    "nodemon": "^2.0.6",
+    "parser": "^0.1.4",
+    "php-node": "0.0.2"
+  }
+}

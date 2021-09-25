@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <%- include('head'); -%>
+    <body>
+        <div class="form_wrapper">
+            <form action="/cart" method="POST">
+                <button>Go Back</button>
+            </form>
+            <div>
+                <p>Important Notice</p>
+                A confirmation email with an Order Number & the total amount (including shipping fees) will be sent to you within 24 hours once your order is placed.<br>
+                <br>
+                Payment via <br>
+                Manual Banking (ATM transfer / Cash Deposit)<br>
+                Internet Banking (Online Transfer / Interbank Transfer)<br>
+                 <br>
+                Make your payment to<br>
+                Maybank 111186209854<br>
+                Esther Sim <br>
+                 <br>
+                Payment update:<br>
+                Please update us your payment by taking a clear snapshot of your Manual Banking receipt<br>
+                or screenshot of your Internet Banking receipt together with your Order Number<br>
+                [ EG: receipt + Order Number (#10000) ]<br>
+                 <br>
+                Email – littletwenty.store@gmail.com<br>
+                IG Direct Message -  @littletwenty.store<br>
+                <br>
+                Note:<br>
+                Please make your payment and sent us the receipt within 48hrs once order has been confirmed.<br>
+                Manual Banking or Internet Banking without snapshot of receipt consider as order failure. <br>
+                Cash deposit payment that paid round figure, change will be return via bank transfer.</div>
+            <form  class="msg" action="https://formspree.io/f/xzbkrlaa" method="POST">
+                <table>
+                    <tr>
+                        <td>送货地址 Delivery Address</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Name*" name="Name" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" placeholder="Email Address*" name="Email" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Delivery Address 1*" name="Delivery Address-1" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Delivery Address 2 (Optional)" name="Delivery Address-2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Country" value="Malaysia" name="Country*" required></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="State">State</label>
+                            <select id="State" name="State" required>
+                              <option value="Johor">Johor</option>
+                              <option value="Kedah">Kedah</option>
+                              <option value="Kelantan">Kelantan</option>
+                              <option value="Kuala Lumpur">Kuala Lumpur</option>
+                              <option value="Labuan">Labuan</option>
+                              <option value="Melaka">Melaka</option>
+                              <option value="Negeri Sembilan">Negeri Sembilan</option>
+                              <option value="Pahang">Pahang</option>
+                              <option value="Penang">Penang</option>
+                              <option value="Perak">Perak</option>
+                              <option value="Perlis">Perlis</option>
+                              <option value="Putrajaya">Putrajaya</option>
+                              <option value="Sabah">Sabah</option>
+                              <option value="Sarawak">Sarawak</option>
+                              <option value="Selangor">Selangor</option>
+                              <option value="Terengganu">Terengganu</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="City*" name="City" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" placeholder="Postcode*" name="Postcode" required></td>
+                    </tr>
+                    <tr>
+                        <td><textarea placeholder="Remark (Optional)"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <% for(var i = 0; i < dataElement.length; i++){ %>
+                                <input type="hidden" value="<%= dataElement[i].selectedItem.name %>" name="(Products <%= i %>) Name">
+                                <input type="hidden" value="<%= dataElement[i].selectedItem.quantity %>" name="(Products <%= i %>) Quantity">
+                            <% } %>
+                            
+                            <button type="submit" value="Send">Submit Order</button>          
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
